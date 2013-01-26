@@ -1,7 +1,7 @@
 Firebug Development System
 ==========================
 
-*Status: DEV*
+*Status: DEV - Not Yet Functional*
 
 One place from which to hack on the whole Firebug toolchain and write extensions.
 
