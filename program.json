@@ -1,0 +1,7 @@
+{
+	"config": {
+		"github.com/devcomp/devcomp/0": {
+			"ui": "./devcomp"
+		}
+	}
+}

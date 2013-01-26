@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <script type="text/javascript" src="node_modules/zepto/response-body"></script>
+        <script>
+            $(document).ready(function() {
+                require('./ui.js').main({
+                    API: {
+                        $: $,
+                        document: document
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body style="-webkit-app-region: drag">
+        
+    </body>
+</html>

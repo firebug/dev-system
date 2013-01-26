@@ -1,0 +1,18 @@
+{
+    "name": "firebug-dev-system-ui",
+    "version": "0.1.0",
+    "main": "index.html",
+    "window": {
+        "title": "firebug-dev-system",
+        "toolbar": false,
+        "position": "center",
+        "width": 800,
+        "height": 400,
+        "resizable": true,
+        "show": true
+    },
+    "pm": "sm",
+    "mappings": {
+        "zepto": ["url", "http://zeptojs.com/zepto.js"]
+    }
+ }
