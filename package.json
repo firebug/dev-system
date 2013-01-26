@@ -2,13 +2,13 @@
     "extends": [
         "dev"
     ],
-	"name": "firebug-dev-system",
-	"version": "0.1.0-pre.1",
-	"pm": "sm",
+    "name": "firebug-dev-system",
+    "version": "0.1.0-pre.2",
+    "pm": "sm",
     "devMappings": {
         "dev": "github.com/freedom-platform/dev/~0.1.0"
     },
-	"scripts": {
-		"install": "scripts/install.sh"
-	}
+    "scripts": {
+        "install": "scripts/install.sh"
+    }
 }
