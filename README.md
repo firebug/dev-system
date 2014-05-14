@@ -107,7 +107,6 @@ Set your own values in `pio.json`:
 	    "config": {
 	        "pio": {
 	            "domain": "vm.cadorn.github.pinf.me",
-	            "namespace": "devcomp-ws-sibling",
 	            "keyPath": "~/.ssh/io.devcomp_rsa",
 	            "serviceRepositoryUri": "https://s3.amazonaws.com/dev.genesis.pio.service.repository/{{config.pio.namespace}}"
 	        },

@@ -25,7 +25,7 @@
     "config": {
         "pio": {
             "domain": "vm.cadorn.github.pinf.me",
-            "namespace": "devcomp-ws-sibling",
+            "namespace": "firebug",
             "keyPath": "~/.ssh/io.devcomp_rsa",
             "servicesPath": "./services",
             "serviceRepositoryUri": "https://s3.amazonaws.com/dev.genesis.pio.service.repository/{{config.pio.namespace}}"
