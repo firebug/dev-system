@@ -1,0 +1,10 @@
+node_modules/
+/.pio.sync
+.sm/
+
+/bin/pio
+/bin/smi
+
+/_upstream/
+/pio.json~extends~*
+pio.rt.json

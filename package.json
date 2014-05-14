@@ -1,0 +1,14 @@
+{
+  "name": "devcomp.workspace.sibling",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "smi.cli": "0.x"
+  },
+  "config": {
+    "smi.cli": {
+    	"descriptorPath": "./pio.json",
+    	"packagesDirectory": "_upstream"
+    }
+  }
+}

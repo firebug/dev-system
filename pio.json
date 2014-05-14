@@ -1,0 +1,61 @@
+{
+    "extends": [
+        "os.inception.profile/source/profile.proto.json"
+    ],
+    "uuid": "04782e3e-33ad-40af-ad02-495b2fbba392",
+    "upstream": {
+        "packages": {
+            "os-inception": [
+                "../os.inception/services/*/*",
+                "../devcomp/_upstream/*/*"
+            ]
+        },
+        "catalogs": {
+            "os-inception": {
+                "uri": "http://pio-catalog.os-inception-i2a83-2.vm.cadorn.github.pinf.me:8013/catalog/io.pinf.pio/99034b0862aa5aee4aa50b930dba969240db64ea",
+                "headers": {
+                    "x-auth-code": "37a1043d-596a-4bd5-bf60-6d057b30dec2"
+                }
+            }
+        }
+    },
+    "mappings": {
+        "os.inception.profile": "os-inception/os.inception.profile"
+    },
+    "config": {
+        "pio": {
+            "domain": "vm.cadorn.github.pinf.me",
+            "namespace": "devcomp-ws-sibling",
+            "keyPath": "~/.ssh/io.devcomp_rsa",
+            "servicesPath": "./services",
+            "serviceRepositoryUri": "https://s3.amazonaws.com/dev.genesis.pio.service.repository/{{config.pio.namespace}}"
+        },
+        "pio.vm": {
+            "user": "ubuntu",
+            "adapter": "aws",
+            "adapterSettings": {
+                "accessKeyId": "{{env.AWS_ACCESS_KEY}}",
+                "secretAccessKey": "{{env.AWS_SECRET_KEY}}",
+                "region": "us-east-1",
+                "ImageId": "ami-951524fc",
+                "InstanceType": "m1.small",
+                "BlockDeviceMappings": [
+                    {
+                        "DeviceName": "/dev/sda1",
+                        "Ebs": {
+                            "VolumeSize": "30"
+                        }
+                    }
+                ]
+            }
+        },
+        "pio.dns": {
+            "adapters": {
+                "dnsimple": {
+                    "email": "{{env.DNSIMPLE_EMAIL}}",
+                    "token": "{{env.DNSIMPLE_TOKEN}}"
+                }
+            }
+        }
+    }
+}

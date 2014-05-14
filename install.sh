@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# @credit http://stackoverflow.com/a/246128/330439
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do
+  DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
+done
+BASE_PATH="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+
+. $BASE_PATH/bin/activate.sh
+
+
+# Only initialize once in the beginning.
+if [ ! -d "node_modules" ]; then
+	git submodule update --init --recursive --rebase
+fi
+
+
+npm install
+
+mkdir -p bin || true
+rm bin/smi || true
+ln -s ../node_modules/.bin/smi bin/smi
+
+
+# For dev when working on `smi` tooling.
+if [ -d "../os.inception" ]; then
+	rm -Rf node_modules/smi.cli
+	ln -s ../../os.inception/services/0-sm/smi.cli node_modules/smi.cli
+elif [ -d "../devcomp" ]; then
+	rm -Rf node_modules/smi.cli
+	ln -s ../../devcomp/_upstream/os-inception/smi.cli/source node_modules/smi.cli
+fi
+
+
+bin/smi install
+
+
+rm bin/pio || true
+ln -s ../_upstream/os-inception/pio.cli/source/pio.sh bin/pio
+chmod u+x bin/pio
+
+rm -Rf node_modules/smi.cli
+ln -s ../_upstream/os-inception/smi.cli/source node_modules/smi.cli
