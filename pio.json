@@ -57,5 +57,29 @@
                 }
             }
         }
+    },
+    "services": {
+        "test": {
+            "firebug.test.manual": {
+                "depends": [
+                    "io.pinf.server.www"
+                ],
+                "env": {
+                    "PORT": 81
+                },
+                "config.plugin": {
+                    "pio.proxy": {
+                        "vhosts": {
+                            "manual-test-firebug.{{config.pio.hostname}}": "127.0.0.1:81"
+                        }
+                    },
+                    "pio.server": {
+                        "vhosts": {
+                            "manual-test-firebug.{{config.pio.hostname}}": "127.0.0.1:81"
+                        }
+                    }
+                }
+            }
+        }
     }
 }

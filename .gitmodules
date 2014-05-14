@@ -1,0 +1,3 @@
+[submodule "services/test/firebug.test.manual"]
+	path = services/test/firebug.test.manual
+	url = git@github.com:firebug/manual-tests.git
