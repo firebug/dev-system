@@ -29,7 +29,11 @@ Requirements:
 
   * OSX
   * NodeJS `0.10+`
-  * **DEDICATED** [Amazon AWS Account](http://aws.amazon.com/)
+  * One of the following VM Accounts:
+	  * [Digital Ocean](http://digitalocean.com/)
+	  * [Amazon AWS Account](http://aws.amazon.com/)
+
+NOTE: We recommend you use a **dedicated** account to play with devcomp.
 
 Locate workspaces:
 
@@ -40,62 +44,22 @@ Locate workspaces:
 1. Setup [devcomp](https://github.com/devcomp-io/devcomp)
 ---------------------------------------------------------
 
-Credentials:
-
-	echo '
-	#!/bin/bash -e
-	# IAM credentials for AWS account
-	export AWS_USER_NAME="<Your Username>"
-	export AWS_ACCESS_KEY="<Your Access Key>"
-	export AWS_SECRET_KEY="<Your Secret Key>"
-	# pinf.io credentials (generate your own UUIDs)
-	export PIO_EPOCH_ID="<Insert UUID>"
-	export PIO_SEED_SALT="<Insert UUID>"
-	export PIO_SEED_KEY="<Insert UUID>"
-	export PIO_USER_ID="<Insert UUID>"
-	export PIO_USER_SECRET="<Insert UUID>"
-	' > devcomp.activate.sh
-
-Clone:
-
 	git clone git@github.com:devcomp-io/devcomp.git devcomp
 	cd devcomp
 
-Install:
-
-	./install.sh
-
-Activate:
+	bin/install.sh
 
     source bin/activate.sh
 
-Provision instance and deploy services:
-
     pio deploy
+
+    pio open
 
 
 2. Setup Sibling Workspace
 --------------------------
 
-Pick a name: `<NAME>`
-
-Credentials:
-
-	echo '
-	#!/bin/bash -e
-	# IAM credentials for AWS account
-	export AWS_USER_NAME="<Your Username>"
-	export AWS_ACCESS_KEY="<Your Access Key>"
-	export AWS_SECRET_KEY="<Your Secret Key>"
-	# pinf.io credentials (generate your own UUIDs)
-	export PIO_EPOCH_ID="<Insert UUID>"
-	export PIO_SEED_SALT="<Insert UUID>"
-	export PIO_SEED_KEY="<Insert UUID>"
-	export PIO_USER_ID="<Insert UUID>"
-	export PIO_USER_SECRET="<Insert UUID>"
-	' > <NAME>.activate.sh
-
-Clone:
+Pick a name: `<NAME>` and clone:
 
 	git clone git@github.com:devcomp-io/devcomp.workspace.sibling.git <NAME>
 	cd <NAME>
@@ -106,31 +70,15 @@ Set your own values in `pio.json`:
 	    "uuid": "04782e3e-33ad-40af-ad02-495b2fbba392",
 	    "config": {
 	        "pio": {
-	            "domain": "vm.cadorn.github.pinf.me",
-	            "namespace": "devcomp-ws-sibling",
-	            "keyPath": "~/.ssh/io.devcomp_rsa",
-	            "serviceRepositoryUri": "https://s3.amazonaws.com/dev.genesis.pio.service.repository/{{config.pio.namespace}}"
-	        },
-	        "pio.dns": {
-	            "adapters": {
-	                "dnsimple": {
-	                    "email": "{{env.DNSIMPLE_EMAIL}}",
-	                    "token": "{{env.DNSIMPLE_TOKEN}}"
-	                }
-	                // or
-	                "aws": {
-	                    "accessKeyId": "{{env.AWS_ACCESS_KEY}}",
-	                    "secretAccessKey": "{{env.AWS_SECRET_KEY}}",
-	                    "region": "us-east-1"
-	                }
-	            }
+	            "domain": "vm.devcomp.io",
+	            "namespace": "devcomp-ws-sibling"
 	        }
 	    }
 	}
 
 Install:
 
-	./install.sh
+	bin/install.sh
 
 Activate:
 
