@@ -88,6 +88,18 @@ Provision instance and deploy services:
     pio deploy
 
 
+Getting Updates
+===============
+
+For each workspace:
+
+    source bin/activate.sh
+	pio clean
+	git pull origin master
+	bin/install.sh
+	pio deploy
+
+
 License
 =======
 
