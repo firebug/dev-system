@@ -1,5 +1,6 @@
 node_modules/
-/.pio.sync
+.pio.cache/
+.pio.sync/
 .sm/
 
 /bin/pio
