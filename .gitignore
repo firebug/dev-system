@@ -1,8 +1,10 @@
 node_modules/
-/.pio.sync
+.pio.cache/
+.pio.sync/
 .sm/
 
 /bin/pio
+/bin/pio-ensure-credentials
 /bin/smi
 
 /_upstream/

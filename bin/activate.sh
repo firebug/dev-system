@@ -13,15 +13,14 @@ BASE_PATH="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 
 # TODO: Relocate this into dedicated service.
-
 echo "[pio] Switching environment ..."
 # TODO: Make all this configurable
 
-. $BASE_PATH/../../$(basename $(dirname $BASE_PATH)).activate.sh
 
 export PATH=$BASE_PATH:$PATH
 
 ulimit -Sn 8192
+
 
 
 if hash node 2>/dev/null; then
@@ -43,7 +42,21 @@ echo "node: $(which node) ($(node -v))"
 echo "npm: $(which npm) ($(npm -v))"
 
 
+
 # @see http://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html
 # @see http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
 PS1="\[\033[1;34m\]\[\033[47m\](OS)\[\033[0m\] \[\033[1;35m\]$(basename $(dirname $BASE_PATH))\[\033[0m\] \[\033[33m\]\u\[\033[1;33m\]$\[\033[0m\] "
 
+
+
+if [ ! -d "node_modules" ]; then
+	echo ""
+	echo "ACTION: Run 'bin/install.sh' next!"
+	echo ""
+else
+	bin/pio-ensure-credentials
+fi
+
+if [ -f "$BASE_PATH/../../$(basename $(dirname $BASE_PATH)).activate.sh" ]; then
+	. $BASE_PATH/../../$(basename $(dirname $BASE_PATH)).activate.sh
+fi

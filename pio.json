@@ -12,7 +12,7 @@
         },
         "catalogs": {
             "os-inception": {
-                "uri": "http://pio-catalog.os-inception-i2a83-2.vm.cadorn.github.pinf.me:8013/catalog/io.pinf.pio/8a80aa7b86f3168713ea76e33f47f16ead2ace3c",
+                "uri": "http://pio-catalog.os-inception-iae5f554-2.vm.cadorn.github.pinf.me:8013/catalog/io.pinf.pio/59c41a52c028ad8a989f9847a0270fa309624cda",
                 "headers": {
                     "x-auth-code": "37a1043d-596a-4bd5-bf60-6d057b30dec2"
                 }
@@ -25,37 +25,7 @@
     "config": {
         "pio": {
             "domain": "vm.cadorn.github.pinf.me",
-            "namespace": "firebug",
-            "keyPath": "~/.ssh/io.devcomp_rsa",
-            "servicesPath": "./services",
-            "serviceRepositoryUri": "https://s3.amazonaws.com/dev.genesis.pio.service.repository/{{config.pio.namespace}}"
-        },
-        "pio.vm": {
-            "user": "ubuntu",
-            "adapter": "aws",
-            "adapterSettings": {
-                "accessKeyId": "{{env.AWS_ACCESS_KEY}}",
-                "secretAccessKey": "{{env.AWS_SECRET_KEY}}",
-                "region": "us-east-1",
-                "ImageId": "ami-951524fc",
-                "InstanceType": "m1.small",
-                "BlockDeviceMappings": [
-                    {
-                        "DeviceName": "/dev/sda1",
-                        "Ebs": {
-                            "VolumeSize": "30"
-                        }
-                    }
-                ]
-            }
-        },
-        "pio.dns": {
-            "adapters": {
-                "dnsimple": {
-                    "email": "{{env.DNSIMPLE_EMAIL}}",
-                    "token": "{{env.DNSIMPLE_TOKEN}}"
-                }
-            }
+            "namespace": "firebug"
         }
     },
     "services": {
