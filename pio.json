@@ -29,6 +29,24 @@
         }
     },
     "services": {
+        "sites": {
+            "firebug.website.system": {
+                "depends": [
+                    "io.pinf.server.www"
+                ],
+                "env": {
+                    "PORT": 82
+                },
+                "config.plugin": {
+                    "pio.proxy": {
+                        "vhosts": {
+                            "{{config.pio.hostname}}": "127.0.0.1:82",
+                            "{{config['pio.vm'].ip}}": "127.0.0.1:82"
+                        }
+                    }
+                }
+            }
+        },
         "test": {
             "firebug.test.manual": {
                 "depends": [
