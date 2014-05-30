@@ -24,8 +24,8 @@
     },
     "config": {
         "pio": {
-            "domain": "vm.cadorn.github.pinf.me",
-            "namespace": "firebug"
+            "domain": "firebug.io",
+            "namespace": "firebug-dev"
         }
     },
     "services": {
