@@ -27,11 +27,12 @@ Setup Workspace
 
 Requirements:
 
-  * OSX
+  * OSX or Ubuntu
   * NodeJS `0.10+`
   * One of the following VM Accounts:
-	  * [Digital Ocean](http://digitalocean.com/)
+	  * [Digital Ocean Account](http://digitalocean.com/)
 	  * [Amazon AWS Account](http://aws.amazon.com/)
+  * [Github Account](http://github.com)
 
 NOTE: We recommend you use a **dedicated** account to play with devcomp.
 
