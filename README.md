@@ -1,100 +1,52 @@
-DeveloperCompanion Sibling Workspace
-====================================
+Firebug Development System
+==========================
 
 **Status: DEV**
 
-This project contains a sample workspace with instructions on how to set it up as a sibling of [devcomp](https://github.com/devcomp-io/devcomp).
+This project integrates various Firebug sub-projects into a cohesive development system.
 
-The following workspace structure is expected:
-
-	~/dev.workspaces
-	  /devcomp
-	  /<This Project>
-
-Features:
-
-  * [devcomp](https://github.com/devcomp-io/devcomp) can be used as a reference implementation and to verify upstream changes.
-  * This sibling project will locally link dependencies from the cloned [devcomp](https://github.com/devcomp-io/devcomp) project
-    so that they do not need to be downloaded every time `pio clean` is run.
-  * Deployment of an instance derived from [devcomp](https://github.com/devcomp-io/devcomp).
-
-**NOTE: This project currently does not contain the devcomp services and only the upstream services.
-This will be rectified as soon as we can publish catalogs from the devcomp instance.**
+The goal is to provide a super fast way for new contributors to get started with
+the Firebug development stack and contribute to it.
 
 
-Setup Workspace
-===============
+Requirements
+------------
 
-Requirements:
-
-  * OSX or Ubuntu
+  * OSX or Ubuntu workstation
   * NodeJS `0.10+`
   * One of the following VM Accounts:
 	  * [Digital Ocean Account](http://digitalocean.com/)
 	  * [Amazon AWS Account](http://aws.amazon.com/)
   * [Github Account](http://github.com)
 
-NOTE: We recommend you use a **dedicated** account to play with devcomp.
-
-Locate workspaces:
-
-	mkdir ~/dev.workspaces
-	cd ~/dev.workspaces
+NOTE: We recommend you use a **dedicated** account to play with this Firebug dev system.
 
 
-1. Setup [devcomp](https://github.com/devcomp-io/devcomp)
----------------------------------------------------------
+Install
+-------
 
-	git clone git@github.com:devcomp-io/devcomp.git devcomp
-	cd devcomp
-
+	git clone git@github.com:firebug/dev-system.git firebug-dev-system
+	cd firebug-dev-system
 	bin/install.sh
 
-    source bin/activate.sh
+Deploy
+------
 
-    pio deploy
+	source bin/activate.sh
+	pio deploy
 
-    pio open
+NOTE: The first time you run `source bin/activate.sh` you will be asked for your VM account credentials.
 
+Contibute
+---------
 
-2. Setup Sibling Workspace
---------------------------
+	source bin/activate.sh
+	pio open	
 
-Pick a name: `<NAME>` and clone:
+Update
+------
 
-	git clone git@github.com:devcomp-io/devcomp.workspace.sibling.git <NAME>
-	cd <NAME>
-
-Set your own values in `pio.json`:
-
-	{
-	    "uuid": "04782e3e-33ad-40af-ad02-495b2fbba392",
-	    "config": {
-	            "domain": "vm.devcomp.io",
-	            "namespace": "devcomp-ws-sibling"
-	        }
-	    }
-	}
-
-Install:
-
-	bin/install.sh
-
-Activate:
-
-    source bin/activate.sh
-
-Provision instance and deploy services:
-
-    pio deploy
-
-
-Getting Updates
-===============
-
-For each workspace:
-
-    source bin/activate.sh
+	source bin/activate.sh
 	pio clean
 	git pull origin master
 	bin/install.sh
@@ -104,7 +56,9 @@ For each workspace:
 License
 =======
 
-Copyright 2014 Christoph Dorn
+Copyright (c) 2014, Mozilla Foundation
 
-License: MIT
+License: BSD License
+
+Original code donated to Mozilla Foundation by [Christoph Dorn](http://christophdorn.com).
 
