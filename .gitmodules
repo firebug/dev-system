@@ -1,3 +1,6 @@
 [submodule "services/test/firebug.test.manual"]
 	path = services/test/firebug.test.manual
 	url = git@github.com:firebug/manual-tests.git
+[submodule "services/mozilla/mozilla.addon-sdk"]
+	path = services/mozilla/mozilla.addon-sdk
+	url = https://github.com/mozilla/addon-sdk
