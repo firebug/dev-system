@@ -4,3 +4,6 @@
 [submodule "services/mozilla/mozilla.addon-sdk"]
 	path = services/mozilla/mozilla.addon-sdk
 	url = https://github.com/mozilla/addon-sdk
+[submodule "services/projects/firebug.next"]
+	path = services/projects/firebug.next
+	url = git@github.com:firebug/firebug.next.git

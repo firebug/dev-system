@@ -60,3 +60,16 @@ fi
 if [ -f "$BASE_PATH/../../$(basename $(dirname $BASE_PATH)).activate.sh" ]; then
 	. $BASE_PATH/../../$(basename $(dirname $BASE_PATH)).activate.sh
 fi
+
+
+# Activate Mozilla specific components
+
+cd $BASE_PATH/../services/mozilla/mozilla.addon-sdk
+
+source bin/activate
+
+cd $BASE_PATH/..
+
+
+alias run="$BASE_PATH/../services/tools/tools.cli.dev/run-firebug-next.sh"
+
