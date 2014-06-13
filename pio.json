@@ -12,7 +12,7 @@
         },
         "catalogs": {
             "os-inception": {
-                "uri": "http://assets.firebug.io/catalog/os-inception~prod",
+                "uri": "http://assets.firebug.io/catalog/os-inception~int",
                 "headers": {
                     "x-pio.catalog-key": "37a1043d-596a-4bd5-bf60-6d057b30dec2"
                 }
