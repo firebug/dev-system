@@ -1,6 +1,7 @@
 {
     "extends": [
-        "os.inception.profile/source/profile.proto.json"
+        "os.inception.profile/source/profile.proto.json",
+        "io.devcomp.meta.profiles/source/profile.proto.json"
     ],
     "uuid": "04782e3e-33ad-40af-ad02-495b2fbba392",
     "upstream": {
@@ -16,11 +17,18 @@
                 "headers": {
                     "x-pio.catalog-key": "37a1043d-596a-4bd5-bf60-6d057b30dec2"
                 }
+            },
+            "io-devcomp": {
+                "uri": "http://assets.firebug.io/catalog/io-devcomp~rev~98c2271e7bcbf6b39e5c80f9bb98f02bfe8a2162",
+                "headers": {
+                    "x-pio.catalog-key": "1322705f-cac1-4028-a2c8-1aee1235119c"
+                }
             }
         }
     },
     "mappings": {
-        "os.inception.profile": "os-inception/os.inception.profile"
+        "os.inception.profile": "os-inception/os.inception.profile",
+        "io.devcomp.meta.profiles": "io-devcomp/io.devcomp.meta.profiles"
     },
     "config": {
         "pio": {
