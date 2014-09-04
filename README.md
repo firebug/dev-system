@@ -52,6 +52,11 @@ Update
 	bin/install.sh
 	pio deploy
 
+Develop
+-------
+
+	profile -h
+
 
 License
 =======

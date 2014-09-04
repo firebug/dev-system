@@ -58,7 +58,6 @@ rm -Rf node_modules/smi.cli
 ln -s ../_upstream/os-inception/smi.cli/source node_modules/smi.cli
 
 
-
 echo ""
 echo "ACTION: Now run 'source bin/activate.sh' next!"
 echo ""

@@ -10,3 +10,6 @@ node_modules/
 /_upstream/
 /pio.json~extends~*
 pio.rt.json
+
+.profiles/
+.browsers/

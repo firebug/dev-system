@@ -72,4 +72,5 @@ cd $BASE_PATH/..
 
 
 alias run="$BASE_PATH/../services/tools/tools.cli.dev/run-firebug-next.sh"
+alias profile="$BASE_PATH/../services/tools/tools.cli.dev/profile.sh"
 
