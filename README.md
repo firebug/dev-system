@@ -3,10 +3,10 @@ Firebug Development System
 
 **Status: DEV**
 
-This project integrates various Firebug sub-projects into a cohesive development system.
+This project integrates various Mozilla and specifically [Developer Tools](https://developer.mozilla.org/en-US/docs/Tools) & [Firebug](https://github.com/firebug) related projects into a cohesive development system.
 
-The goal is to provide a super fast way for new contributors to get started with
-the Firebug development stack and contribute to it.
+The goal is to provide a super fast way for developers to get started with
+the complete Firebug development stack, build applications using it and contribute to it.
 
 
 Requirements
@@ -19,7 +19,7 @@ Requirements
 	  * [Amazon AWS Account](http://aws.amazon.com/)
   * [Github Account](http://github.com)
 
-NOTE: We recommend you use a **dedicated** account to play with this Firebug dev system.
+NOTE: We recommend you use a **dedicated for testing** hosting account to play with this Firebug dev system at this time.
 
 
 Install
@@ -37,11 +37,12 @@ Deploy
 
 NOTE: The first time you run `source bin/activate.sh` you will be asked for your VM account credentials.
 
-Contibute
----------
+Make Changes
+------------
 
 	source bin/activate.sh
-	pio open	
+	pio open
+	# NOTE: All 'Develop & Test' tools and commands below will eventually be integrated into this web interface
 
 Update
 ------
