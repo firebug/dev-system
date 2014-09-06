@@ -17,10 +17,7 @@ echo "[pio] Switching environment ..."
 # TODO: Make all this configurable
 
 
-export PATH=$BASE_PATH:$PATH
-
 ulimit -Sn 8192
-
 
 
 if hash node 2>/dev/null; then
@@ -64,12 +61,14 @@ fi
 
 # Activate Mozilla specific components
 
-cd $BASE_PATH/../services/mozilla/mozilla.addon-sdk
+cd $BASE_PATH/../services/lib/mozilla.addon-sdk
 
 source bin/activate
 
 cd $BASE_PATH/..
 
+
+export PATH=$BASE_PATH:$BASE_PATH/../node_modules/.bin:$PATH
 
 alias run="$BASE_PATH/../services/tools/tools.cli.dev/run-firebug-next.sh"
 alias profile="$BASE_PATH/../services/tools/tools.cli.dev/profile.sh"

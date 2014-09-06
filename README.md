@@ -55,7 +55,14 @@ Update
 Develop
 -------
 
-	profile -h
+	profile list
+	profile run fbn-dev
+
+	# See: https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm
+	jpm -h
+
+	# https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/cfx
+	cfx -h
 
 
 License
@@ -63,7 +70,7 @@ License
 
 Copyright (c) 2014, Mozilla Foundation
 
-License: BSD License
+License: MPL
 
 Original code donated to Mozilla Foundation by [Christoph Dorn](http://christophdorn.com).
 

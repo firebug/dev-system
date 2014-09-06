@@ -1,9 +1,21 @@
 [submodule "services/test/firebug.test.manual"]
 	path = services/test/firebug.test.manual
 	url = git@github.com:firebug/manual-tests.git
-[submodule "services/mozilla/mozilla.addon-sdk"]
-	path = services/mozilla/mozilla.addon-sdk
-	url = https://github.com/mozilla/addon-sdk
 [submodule "services/projects/firebug.next"]
 	path = services/projects/firebug.next
 	url = git@github.com:firebug/firebug.next.git
+[submodule "services/projects/tracing-console"]
+	path = services/projects/tracing-console
+	url = git@github.com:firebug/tracing-console.git
+[submodule "services/containers/fp-for-mozilla-apps"]
+	path = services/containers/fp-for-mozilla-apps
+	url = git@github.com:freedom-platform/fp-for-mozilla-apps.git
+[submodule "services/lib/pinf-for-mozilla-addon-sdk"]
+	path = services/lib/pinf-for-mozilla-addon-sdk
+	url = git@github.com:pinf/pinf-for-mozilla-addon-sdk.git
+[submodule "services/lib/mozilla.addon-sdk"]
+	path = services/lib/mozilla.addon-sdk
+	url = https://github.com/mozilla/addon-sdk
+[submodule "services/containers/fp-for-mozilla-extensions"]
+	path = services/containers/fp-for-mozilla-extensions
+	url = git@github.com:freedom-platform/fp-for-mozilla-extensions.git

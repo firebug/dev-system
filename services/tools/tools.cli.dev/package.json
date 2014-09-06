@@ -7,6 +7,7 @@
 	  "fs-extra": "~0.8.1",
     "colors": "^0.6.2",
     "commander": "^2.2.0",
+    "q": "~1.0.0",
     "smi.cli": "0.x"    
   },
   "scripts": {

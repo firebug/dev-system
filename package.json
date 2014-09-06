@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "jpm": "0.0.13",
     "smi.cli": "0.x"
   },
   "config": {
     "smi.cli": {
-    	"descriptorPath": "./pio.json",
-    	"packagesDirectory": "_upstream"
+      "descriptorPath": "./pio.json",
+      "packagesDirectory": "_upstream"
     }
   }
 }
