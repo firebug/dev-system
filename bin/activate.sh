@@ -69,6 +69,7 @@ cd $BASE_PATH/..
 
 
 export PATH=$BASE_PATH:$BASE_PATH/../node_modules/.bin:$PATH
+export JETPACK_ROOT=$BASE_PATH/../services/lib/mozilla.addon-sdk
 
 alias run="$BASE_PATH/../services/tools/tools.cli.dev/run-firebug-next.sh"
 alias profile="$BASE_PATH/../services/tools/tools.cli.dev/profile.sh"

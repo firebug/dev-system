@@ -91,7 +91,7 @@ function main(callback) {
                         profiles[name].path
                     ) {
                         function provision() {
-                            if (!profiles[name].extensions) {
+                            if (!profiles[name].extensions && !profiles[name].run) {
                                 return Q.resolve();
                             }
                             return Q.denodeify(function(callback) {

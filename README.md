@@ -52,17 +52,34 @@ Update
 	bin/install.sh
 	pio deploy
 
-Develop
--------
+Develop & Test
+--------------
+
+Tools:
 
 	profile list
-	profile run fbn-dev
 
-	# See: https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm
+	# https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm
 	jpm -h
 
 	# https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/cfx
 	cfx -h
+
+Projects:
+
+	# https://github.com/firebug/firebug.next
+	profile run fbn-dev
+
+	# https://github.com/firebug/firebug
+	profile run fb2-release
+
+	# https://github.com/firephp/firephp-extension
+	profile run fb2-release-firephp
+
+Containers:
+
+	profile run fp-for-mozilla-extensions-dev
+	profile run fp-for-mozilla-extensions-test
 
 
 License

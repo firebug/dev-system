@@ -46,6 +46,10 @@
                 "config.plugin": null
             }
         },
+        "containers": {
+            "fp-for-mozilla-extensions": {                
+            }
+        },
         "sites": {
             "firebug.website.system": {
                 "depends": [
@@ -88,6 +92,9 @@
         },
         "tools": {
             "tools.cli.dev": {
+                "depends": [
+                    "pio.postdeploy"
+                ],
                 "config": {
                     "profiles": {
                         "fbn-dev": {
@@ -115,6 +122,21 @@
                                 "fbtrace@getfirebug.com": "https://getfirebug.com/releases/fbtrace/2.0/fbTrace-2.0b1.xpi",
                                 "FirePHPExtension-Build@firephp.org": "https://addons.mozilla.org/firefox/downloads/latest/6149/addon-6149-latest.xpi"
                             }
+                        },
+                        "fp-for-mozilla-extensions-dev": {
+                            "browserVersion": "35.0a1",
+                            "browserRelease": "nightly",
+                            "run": "cfx run --profiledir=%profiledir% -b %browserbin%",
+                            "path": "./services/containers/fp-for-mozilla-extensions/examples/reference",
+                            "extensions": {
+                                "fbtrace@getfirebug.com": "./services/projects/tracing-console"
+                            }
+                        },
+                        "fp-for-mozilla-extensions-test": {
+                            "browserVersion": "35.0a1",
+                            "browserRelease": "nightly",
+                            "run": "cfx test --profiledir=%profiledir% -b %browserbin%",
+                            "path": "./services/containers/fp-for-mozilla-extensions/examples/reference"
                         }
                     }
                 }
