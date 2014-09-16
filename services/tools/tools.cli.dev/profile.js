@@ -4,6 +4,7 @@ const FS = require("fs-extra");
 const Q = require("q");
 const COMMANDER = require("commander");
 const COLORS = require("colors");
+const CRYPTO = require("crypto");
 const SPAWN = require("child_process").spawn;
 const SMI = require("smi.cli");
 const FIREFOX = require("io.devcomp.tool.firefox/source");
@@ -72,6 +73,7 @@ function main(callback) {
             .command("run <name>")
             .description("Run a profile")
             .option("--detach", "Detach from the browser process (startup logs will not be visible!)")
+            .option("--clean", "Use a fresh profile.")
             .action(function(name, options) {
                 acted = true;
                 return loadProfiles(function (err, profiles) {
@@ -82,7 +84,8 @@ function main(callback) {
                     }
 
                     profiles[name].verbose = true;
-                    profiles[name].debug = true;
+                    profiles[name].debug = false;
+                    profiles[name].clean = options.clean || false;
 
                     console.log("Launching profile '" + name + "' with config:", JSON.stringify(profiles[name], null, 4));
 
@@ -107,6 +110,25 @@ function main(callback) {
                                 var run = profiles[name].run;
                                 run = run.replace(/%profiledir%/g, profile._profileBasePath);
                                 run = run.replace(/%browserbin%/g, profile._descriptor.config.browser.binPath);
+
+                                if (profiles[name].activate) {
+                                    var runHash = CRYPTO.createHash('sha1');
+                                    runHash.update(run);
+                                    runHash = runHash.digest('hex');
+
+                                    var code = [
+                                        '#!/bin/bash',
+                                        'export PROFILE_DIR="' + profile._profileBasePath + '"',
+                                        'export BROWSER_BIN="' + profile._descriptor.config.browser.binPath + '"',
+                                        'source ' + profiles[name].activate,
+                                        run
+                                    ].join("\n");
+
+                                    var activateFilepath = PATH.join(".pio.cache", "firebug.tools.cli.dev/" + runHash + ".sh");
+                                    FS.outputFileSync(PATH.join(__dirname, "../../..", profiles[name].path, activateFilepath), code);
+
+                                    run = "sh " + activateFilepath;
+                                }
 
                                 var proc = SPAWN(
                                     run.split(" ").shift(),

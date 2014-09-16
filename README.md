@@ -82,6 +82,12 @@ Containers:
 	profile run fp-for-mozilla-extensions-dev
 	profile run fp-for-mozilla-extensions-test
 
+Libraries:
+
+	profile run pinf-for-mozilla-addon-sdk-test
+	profile run pinf-for-mozilla-addon-sdk-examples-HelloWorld-test
+	profile run pinf-for-mozilla-addon-sdk-examples-HelloWorld-run
+
 
 License
 =======

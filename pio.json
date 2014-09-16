@@ -31,7 +31,14 @@
     "mappings": {
         "os.inception.profile": "os-inception/os.inception.profile",
         "io.devcomp.meta.profiles": "io-devcomp/io.devcomp.meta.profiles",
-        "tools.cli.dev": "./services/tools/tools.cli.dev"
+        "tools.cli.dev": "./services/tools/tools.cli.dev",
+        "pinf-for-mozilla-addon-sdk": "./services/lib/pinf-for-mozilla-addon-sdk",
+        "fp-for-mozilla-extensions": {
+            "depends": [
+                "pinf-for-mozilla-addon-sdk"
+            ],
+            "location": "./services/containers/fp-for-mozilla-extensions"
+        }
     },
     "config": {
         "pio": {
@@ -137,6 +144,26 @@
                             "browserRelease": "nightly",
                             "run": "cfx test --profiledir=%profiledir% -b %browserbin%",
                             "path": "./services/containers/fp-for-mozilla-extensions/examples/reference"
+                        },
+                        "pinf-for-mozilla-addon-sdk-test": {
+                            "browserVersion": "35.0a1",
+                            "browserRelease": "nightly",
+                            "run": "bin/test",
+                            "path": "./services/lib/pinf-for-mozilla-addon-sdk"
+                        },
+                        "pinf-for-mozilla-addon-sdk-examples-HelloWorld-run": {
+                            "browserVersion": "35.0a1",
+                            "browserRelease": "nightly",
+                            "activate": "bin/activate.sh",
+                            "run": "run-example HelloWorld",
+                            "path": "./services/lib/pinf-for-mozilla-addon-sdk"
+                        },
+                        "pinf-for-mozilla-addon-sdk-examples-HelloWorld-test": {
+                            "browserVersion": "35.0a1",
+                            "browserRelease": "nightly",
+                            "activate": "bin/activate.sh",
+                            "run": "test-example HelloWorld",
+                            "path": "./services/lib/pinf-for-mozilla-addon-sdk"
                         }
                     }
                 }

@@ -24,7 +24,7 @@ if hash node 2>/dev/null; then
 	echo "" > /dev/null
 else
 	# @see https://github.com/creationix/nvm
-	. $HOME/.profile
+	. "$HOME/.profile"
 	if hash nvm 2>/dev/null; then
 		echo "nvm: $(which nvm) ($(nvm --version))"
 	else
@@ -32,7 +32,7 @@ else
 		echo "Installing nvm ..."
 		curl https://raw.githubusercontent.com/creationix/nvm/v0.6.1/install.sh | sh
 	fi
-	. $HOME/.profile
+	. "$HOME/.profile"
 	nvm use 0.10
 fi
 echo "node: $(which node) ($(node -v))"
@@ -61,15 +61,16 @@ fi
 
 # Activate Mozilla specific components
 
-cd $BASE_PATH/../services/lib/mozilla.addon-sdk
+cd "$BASE_PATH/../services/lib/mozilla.addon-sdk"
 
 source bin/activate
 
-cd $BASE_PATH/..
+cd "$BASE_PATH/.."
 
 
-export PATH=$BASE_PATH:$BASE_PATH/../node_modules/.bin:$PATH
-export JETPACK_ROOT=$BASE_PATH/../services/lib/mozilla.addon-sdk
+export PATH="$BASE_PATH:$BASE_PATH/../node_modules/.bin:$PATH"
+export JETPACK_ROOT="$BASE_PATH/../services/lib/mozilla.addon-sdk"
+export WORKSPACE_ROOT="$(dirname $BASE_PATH)"
 
 alias run="$BASE_PATH/../services/tools/tools.cli.dev/run-firebug-next.sh"
 alias profile="$BASE_PATH/../services/tools/tools.cli.dev/profile.sh"
