@@ -77,6 +77,9 @@ Projects:
 	# https://github.com/firephp/firephp-extension
 	profile run fb2-release-firephp
 
+	# https://github.com/firebug/devtools-extension-examples
+	profile run devtools-extension-examples-HelloWorld
+
 Containers:
 
 	profile run fp-for-mozilla-extensions-dev

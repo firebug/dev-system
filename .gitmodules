@@ -19,3 +19,9 @@
 [submodule "services/containers/fp-for-mozilla-extensions"]
 	path = services/containers/fp-for-mozilla-extensions
 	url = git@github.com:freedom-platform/fp-for-mozilla-extensions.git
+[submodule "services/extensions/firephp-for-firebug.next"]
+	path = services/extensions/firephp-for-firebug.next
+	url = git@github.com:firephp/firephp-for-firebug.next.git
+[submodule "services/projects/devtools-extension-examples"]
+	path = services/projects/devtools-extension-examples
+	url = git@github.com:firebug/devtools-extension-examples.git

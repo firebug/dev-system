@@ -7,7 +7,7 @@ const COLORS = require("colors");
 const CRYPTO = require("crypto");
 const SPAWN = require("child_process").spawn;
 const SMI = require("smi.cli");
-const FIREFOX = require("io.devcomp.tool.firefox/source");
+const FIREFOX = require("io.devcomp.tool.firefox");
 
 
 COLORS.setTheme({

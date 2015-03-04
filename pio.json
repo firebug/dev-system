@@ -7,21 +7,21 @@
     "upstream": {
         "packages": {
             "os-inception": [
-                "../os.inception/services/*/*"
+                "/genesis/os.inception/services/*/*"
             ],
             "io-devcomp": [
-                "../devcomp/services/*/*"
+                "/genesis/devcomp/services/*/*"
             ]
         },
         "catalogs": {
             "os-inception": {
-                "uri": "http://pio-catalog.os-inception-iae5f554-5.vm.cadorn.github.pinf.me:8013/catalog/io.pinf.pio/087ad2bd821c0c7002233a97e1076d2a4dec5aeb",
+                "uri": "http://pio-catalog.os-inception-iae5f554-5.vm.cadorn.github.pinf.me:8013/catalog/io.pinf.pio/2df0c762325d794e55cd24ec943beaa39dc01235",
                 "headers": {
                     "x-pio.catalog-key": "37a1043d-596a-4bd5-bf60-6d057b30dec2"
                 }
             },
             "io-devcomp": {
-                "uri": "http://pio-catalog.devcomp-i80fde72-3.vm.cadorn.github.pinf.me:8013/catalog/io.devcomp/4b6cb7afbd3b7d34ff23d1b7bc4e04c3d74649b1",
+                "uri": "http://pio-catalog.devcomp-i80fde72-3.vm.cadorn.github.pinf.me:8013/catalog/io.devcomp/b739c1f3878862df73c6ec3927bbefd424acba8e",
                 "headers": {
                     "x-pio.catalog-key": "1322705f-cac1-4028-a2c8-1aee1235119c"
                 }
@@ -31,8 +31,19 @@
     "mappings": {
         "os.inception.profile": "os-inception/os.inception.profile",
         "io.devcomp.meta.profiles": "io-devcomp/io.devcomp.meta.profiles",
-        "tools.cli.dev": "./services/tools/tools.cli.dev",
-        "pinf-for-mozilla-addon-sdk": "./services/lib/pinf-for-mozilla-addon-sdk",
+        "tools.cli.dev": {
+            "depends": [
+                "os-inception/smi.cli",
+                "io-devcomp/io.devcomp.tool.firefox"
+            ],
+            "location": "./services/tools/tools.cli.dev"
+        },
+        "pinf-for-mozilla-addon-sdk": {
+            "depends": [
+                "os-inception/smi.cli"
+            ],
+            "location": "./services/lib/pinf-for-mozilla-addon-sdk"
+        },
         "fp-for-mozilla-extensions": {
             "depends": [
                 "pinf-for-mozilla-addon-sdk"
@@ -164,6 +175,12 @@
                             "activate": "bin/activate.sh",
                             "run": "test-example HelloWorld",
                             "path": "./services/lib/pinf-for-mozilla-addon-sdk"
+                        },
+                        "devtools-extension-examples-HelloWorld": {
+                            "browserVersion": "39.0a1",
+                            "browserRelease": "nightly",
+                            "run": "jpm run -p %profiledir% -b %browserbin%",
+                            "path": "./services/projects/devtools-extension-examples/HelloWorld"
                         }
                     }
                 }
