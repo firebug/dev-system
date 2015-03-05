@@ -74,9 +74,6 @@ Projects:
 	# https://github.com/firebug/firebug
 	profile run fb2-release
 
-	# https://github.com/firephp/firephp-extension
-	profile run fb2-release-firephp
-
 	# https://github.com/firebug/devtools-extension-examples
 	profile run devtools-extension-examples-HelloWorld
 
@@ -90,6 +87,17 @@ Libraries:
 	profile run pinf-for-mozilla-addon-sdk-test
 	profile run pinf-for-mozilla-addon-sdk-examples-HelloWorld-test
 	profile run pinf-for-mozilla-addon-sdk-examples-HelloWorld-run
+
+Extensions:
+
+	# https://github.com/firephp/firephp-extension
+	profile run fb2-release-firephp
+
+	# https://github.com/firephp/firephp-for-firebug.next
+	pio publish --local firephp-for-firebug.next
+	pio run firephp-for-firebug.next --open
+	profile run fbn-firephp
+	profile run fbn-firephp-test
 
 
 License

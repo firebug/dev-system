@@ -1,7 +1,8 @@
 {
     "extends": [
         "os.inception.profile/source/profile.proto.json",
-        "io.devcomp.meta.profiles/source/profile.proto.json"
+        "io.devcomp.meta.profiles/source/profile.proto.json",
+        "os.inception.profile/source/pinf-local.profile.proto.json"
     ],
     "uuid": "04782e3e-33ad-40af-ad02-495b2fbba392",
     "upstream": {
@@ -49,6 +50,13 @@
                 "pinf-for-mozilla-addon-sdk"
             ],
             "location": "./services/containers/fp-for-mozilla-extensions"
+        },
+        "firephp-for-firebug.next": {
+            "depends": [
+                "os-inception/smi.cli",
+                "os-inception/pinf-to-docker"
+            ],
+            "location": "./services/extensions/firephp-for-firebug.next"
         }
     },
     "config": {
@@ -65,7 +73,10 @@
             }
         },
         "containers": {
-            "fp-for-mozilla-extensions": {                
+            "fp-for-mozilla-extensions": {
+                "depends": [
+                    "pio.postdeploy"
+                ]
             }
         },
         "sites": {
@@ -81,6 +92,24 @@
                         "vhosts": {
                             "{{config.pio.hostname}}": "127.0.0.1:82",
                             "{{config['pio.vm'].ip}}": "127.0.0.1:82"
+                        }
+                    }
+                }
+            }
+        },
+        "extensions": {
+            "firephp-for-firebug.next": {
+                "depends": [
+                    "smi.cli",
+                    "pinf-to-docker"
+                ],
+                "env": {
+                    "PORT": 49083
+                },
+                "config.plugin": {
+                    "pio.proxy": {
+                        "vhosts": {
+                            "firephp-for-firebug-next.{{config.pio.hostname}}": "127.0.0.1:49083"
                         }
                     }
                 }
@@ -111,18 +140,35 @@
         "tools": {
             "tools.cli.dev": {
                 "depends": [
-                    "pio.postdeploy"
+                    "pio.postdeploy",
+                    "smi.cli",
+                    "io.devcomp.tool.firefox"
                 ],
                 "config": {
                     "profiles": {
                         "fbn-dev": {
-                            "browserVersion": "35.0a1",
+                            "browserVersion": "39.0a1",
                             "browserRelease": "nightly",
-                            "run": "cfx run -o --profiledir=%profiledir% -b %browserbin%",
+                            "run": "jpm run -p %profiledir% -b %browserbin%",
                             "path": "./services/projects/firebug.next",
                             "extensions": {
                                 "fbtrace@getfirebug.com": "./services/projects/tracing-console"
                             }
+                        },
+                        "fbn-firephp": {
+                            "browserVersion": "39.0a1",
+                            "browserRelease": "nightly",
+                            "run": "jpm run -p %profiledir% -b %browserbin%",
+                            "path": "./services/extensions/firephp-for-firebug.next/client",
+                            "extensions": {
+                                "fbtrace@getfirebug.com": "./services/projects/tracing-console"
+                            }
+                        },
+                        "fbn-firephp-test": {
+                            "browserVersion": "39.0a1",
+                            "browserRelease": "nightly",
+                            "run": "jpm test -p %profiledir% -b %browserbin%",
+                            "path": "./services/extensions/firephp-for-firebug.next/client"
                         },
                         "fb2-release": {
                             "extensions": {
@@ -151,26 +197,26 @@
                             }
                         },
                         "fp-for-mozilla-extensions-test": {
-                            "browserVersion": "35.0a1",
+                            "browserVersion": "39.0a1",
                             "browserRelease": "nightly",
                             "run": "cfx test --profiledir=%profiledir% -b %browserbin%",
                             "path": "./services/containers/fp-for-mozilla-extensions/examples/reference"
                         },
                         "pinf-for-mozilla-addon-sdk-test": {
-                            "browserVersion": "35.0a1",
+                            "browserVersion": "39.0a1",
                             "browserRelease": "nightly",
                             "run": "bin/test",
                             "path": "./services/lib/pinf-for-mozilla-addon-sdk"
                         },
                         "pinf-for-mozilla-addon-sdk-examples-HelloWorld-run": {
-                            "browserVersion": "35.0a1",
+                            "browserVersion": "39.0a1",
                             "browserRelease": "nightly",
                             "activate": "bin/activate.sh",
                             "run": "run-example HelloWorld",
                             "path": "./services/lib/pinf-for-mozilla-addon-sdk"
                         },
                         "pinf-for-mozilla-addon-sdk-examples-HelloWorld-test": {
-                            "browserVersion": "35.0a1",
+                            "browserVersion": "39.0a1",
                             "browserRelease": "nightly",
                             "activate": "bin/activate.sh",
                             "run": "test-example HelloWorld",

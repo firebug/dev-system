@@ -18,7 +18,8 @@
       "top": [
         "../../*",
         "../../../../*",
-        "../../../_upstream/io-devcomp/*"
+        "../../../_upstream/io-devcomp/*",
+        "/opt/services/*"
       ]
     }
   },

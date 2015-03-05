@@ -25,3 +25,6 @@
 [submodule "services/projects/devtools-extension-examples"]
 	path = services/projects/devtools-extension-examples
 	url = git@github.com:firebug/devtools-extension-examples.git
+[submodule "services/extensions/firephp-extension"]
+	path = services/extensions/firephp-extension
+	url = git@github.com:firephp/firephp-extension.git
