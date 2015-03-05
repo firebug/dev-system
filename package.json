@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "jpm": "~0.0.29",
     "smi.cli": "0.x"
   },
   "config": {

@@ -28,3 +28,6 @@
 [submodule "services/extensions/firephp-extension"]
 	path = services/extensions/firephp-extension
 	url = git@github.com:firephp/firephp-extension.git
+[submodule "services/tools/jpm"]
+	path = services/tools/jpm
+	url = git@github.com:pinf-to/jpm.git

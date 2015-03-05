@@ -6,6 +6,7 @@ node_modules/
 /bin/pio
 /bin/pio-ensure-credentials
 /bin/smi
+/bin/jpm
 
 /_upstream/
 /pio.json~extends~*

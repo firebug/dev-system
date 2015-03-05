@@ -47,6 +47,8 @@ function main(callback) {
         var program = new COMMANDER.Command();
 
         program
+            .option("-v, --verbose", "Show verbose progress")
+            .option("-d, --debug", "Show debug output")
             .version(JSON.parse(FS.readFileSync(PATH.join(__dirname, "/package.json"))).version);
 
         var acted = false;
@@ -110,6 +112,15 @@ function main(callback) {
                                 var run = profiles[name].run;
                                 run = run.replace(/%profiledir%/g, profile._profileBasePath);
                                 run = run.replace(/%browserbin%/g, profile._descriptor.config.browser.binPath);
+
+                                if (program.verbose) {
+                                    run += " --verbose";
+                                }
+                                if (program.debug) {
+                                    run += " --debug";
+                                }
+
+                                console.log("Run:", run);
 
                                 if (profiles[name].activate) {
                                     var runHash = CRYPTO.createHash('sha1');

@@ -32,8 +32,15 @@
     "mappings": {
         "os.inception.profile": "os-inception/os.inception.profile",
         "io.devcomp.meta.profiles": "io-devcomp/io.devcomp.meta.profiles",
+        "io-devcomp/io.devcomp.tool.firefox": {
+            "install": true
+        },
+        "jpm": {
+            "location": "./services/tools/jpm"
+        },
         "tools.cli.dev": {
             "depends": [
+                "jpm",
                 "os-inception/smi.cli",
                 "io-devcomp/io.devcomp.tool.firefox"
             ],
@@ -54,7 +61,8 @@
         "firephp-for-firebug.next": {
             "depends": [
                 "os-inception/smi.cli",
-                "os-inception/pinf-to-docker"
+                "os-inception/pinf-to-docker",
+                "pinf-for-mozilla-addon-sdk"
             ],
             "location": "./services/extensions/firephp-for-firebug.next"
         }
@@ -101,7 +109,8 @@
             "firephp-for-firebug.next": {
                 "depends": [
                     "smi.cli",
-                    "pinf-to-docker"
+                    "pinf-to-docker",
+                    "pinf-for-mozilla-addon-sdk"
                 ],
                 "env": {
                     "PORT": 49083
@@ -138,6 +147,11 @@
             }
         },
         "tools": {
+            "jpm": {
+                "depends": [
+                    "pio.postdeploy"
+                ]
+            },
             "tools.cli.dev": {
                 "depends": [
                     "pio.postdeploy",
