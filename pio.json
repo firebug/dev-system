@@ -48,7 +48,9 @@
         },
         "pinf-for-mozilla-addon-sdk": {
             "depends": [
-                "os-inception/smi.cli"
+                "os-inception/smi.cli",
+                "os-inception/pinf-loader-js",
+                "os-inception/pinf-loader-secure-js"
             ],
             "location": "./services/lib/pinf-for-mozilla-addon-sdk"
         },
@@ -62,7 +64,8 @@
             "depends": [
                 "os-inception/smi.cli",
                 "os-inception/pinf-to-docker",
-                "pinf-for-mozilla-addon-sdk"
+                "pinf-for-mozilla-addon-sdk",
+                "os-inception/to.pinf.lib"
             ],
             "location": "./services/extensions/firephp-for-firebug.next"
         }
