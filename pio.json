@@ -108,6 +108,18 @@
                 }
             }
         },
+        "lib": {
+            "pinf-for-mozilla-addon-sdk": {
+                "depends": [
+                    "smi.cli",
+                    "pinf-loader-js",
+                    "pinf-loader-secure-js"
+                ],
+                "env": {
+                    "PORT": 84
+                }
+            }
+        },
         "extensions": {
             "firephp-for-firebug.next": {
                 "depends": [
