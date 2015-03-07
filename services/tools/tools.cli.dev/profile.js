@@ -112,6 +112,7 @@ function main(callback) {
                                 var run = profiles[name].run;
                                 run = run.replace(/%profiledir%/g, profile._profileBasePath);
                                 run = run.replace(/%browserbin%/g, profile._descriptor.config.browser.binPath);
+                                run = run.replace(/%sdkpath%/g, PATH.join(__dirname, "../../lib/mozilla.addon-sdk"));
 
                                 if (program.verbose) {
                                     run += " --verbose";

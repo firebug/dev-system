@@ -16,7 +16,7 @@
         },
         "catalogs": {
             "os-inception": {
-                "uri": "http://pio-catalog.os-inception-iae5f554-5.vm.cadorn.github.pinf.me:8013/catalog/io.pinf.pio/2df0c762325d794e55cd24ec943beaa39dc01235",
+                "uri": "http://pio-catalog.os-inception-iae5f554-5.vm.cadorn.github.pinf.me:8013/catalog/io.pinf.pio/ca5d8d819cb73a2728e66e190708e155a0729617",
                 "headers": {
                     "x-pio.catalog-key": "37a1043d-596a-4bd5-bf60-6d057b30dec2"
                 }
@@ -178,7 +178,7 @@
                         "fbn-dev": {
                             "browserVersion": "39.0a1",
                             "browserRelease": "nightly",
-                            "run": "jpm run -p %profiledir% -b %browserbin%",
+                            "run": "jpm run -o %sdkpath% -p %profiledir% -b %browserbin%",
                             "path": "./services/projects/firebug.next",
                             "extensions": {
                                 "fbtrace@getfirebug.com": "./services/projects/tracing-console"
@@ -187,7 +187,7 @@
                         "fbn-firephp": {
                             "browserVersion": "39.0a1",
                             "browserRelease": "nightly",
-                            "run": "jpm run -p %profiledir% -b %browserbin%",
+                            "run": "jpm run -o %sdkpath% -p %profiledir% -b %browserbin%",
                             "path": "./services/extensions/firephp-for-firebug.next/client",
                             "extensions": {
                                 "fbtrace@getfirebug.com": "./services/projects/tracing-console"
@@ -196,7 +196,7 @@
                         "fbn-firephp-test": {
                             "browserVersion": "39.0a1",
                             "browserRelease": "nightly",
-                            "run": "jpm test -p %profiledir% -b %browserbin%",
+                            "run": "jpm test -o %sdkpath% -p %profiledir% -b %browserbin%",
                             "path": "./services/extensions/firephp-for-firebug.next/client"
                         },
                         "fb2-release": {
