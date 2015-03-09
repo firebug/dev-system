@@ -94,10 +94,12 @@ Extensions:
 	profile run fb2-release-firephp
 
 	# https://github.com/firephp/firephp-for-firebug.next
-	pio publish --local firephp-for-firebug.next
-	pio run firephp-for-firebug.next --open
-	profile run fbn-firephp
-	profile run fbn-firephp-test
+    pio bundle --local firephp-for-firebug.next
+    pio run --local --dev firephp-for-firebug.next --open
+    pio run --local --dev firephp-for-firebug.next -- components
+    pio run --local --dev firephp-for-firebug.next -- server
+    profile run fbn-firephp
+    profile run fbn-firephp-test
 
 
 License
