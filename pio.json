@@ -35,7 +35,13 @@
         "io-devcomp/io.devcomp.tool.firefox": {
             "install": true
         },
+        "firefox-profile": {
+            "location": "./services/tools/firefox-profile"
+        },
         "jpm": {
+            "depends": [
+                "firefox-profile"
+            ],
             "location": "./services/tools/jpm"
         },
         "tools.cli.dev": {
@@ -162,8 +168,14 @@
             }
         },
         "tools": {
+            "firefox-profile": {
+                "depends": [
+                    "pio.postdeploy"
+                ]
+            },
             "jpm": {
                 "depends": [
+                    "firefox-profile",
                     "pio.postdeploy"
                 ]
             },
@@ -189,6 +201,9 @@
                             "browserRelease": "nightly",
                             "run": "jpm run -o %sdkpath% -p %profiledir% -b %browserbin%",
                             "path": "./services/extensions/firephp-for-firebug.next/client",
+                            "preferences": {
+                                "extensions.firephp-for-firebug.next@firephp.org.dev": 1
+                            },
                             "extensions": {
                                 "fbtrace@getfirebug.com": "./services/projects/tracing-console"
                             }
