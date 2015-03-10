@@ -92,8 +92,7 @@ function main(callback) {
                     console.log("Launching profile '" + name + "' with config:", JSON.stringify(profiles[name], null, 4));
 
                     if (
-                        profiles[name].run &&
-                        profiles[name].path
+                        profiles[name].run
                     ) {
                         function provision() {
                             if (!profiles[name].extensions && !profiles[name].run) {
@@ -122,7 +121,7 @@ function main(callback) {
                                 }
 
                                 console.log("Run:", run);
-
+//throw "STOP";
                                 if (profiles[name].activate) {
                                     var runHash = CRYPTO.createHash('sha1');
                                     runHash.update(run);
@@ -146,7 +145,7 @@ function main(callback) {
                                     run.split(" ").shift(),
                                     run.split(" ").slice(1),
                                     {
-                                        cwd: PATH.join(__dirname, "../../..", profiles[name].path)
+                                        cwd: PATH.join(__dirname, "../../..", profiles[name].path || "")
                                     }
                                 );
                                 proc.on("error", function(err) {
