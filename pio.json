@@ -66,12 +66,16 @@
             ],
             "location": "./services/containers/fp-for-mozilla-extensions"
         },
+        "firebug.sdk": {
+            "location": "./services/lib/firebug.sdk"
+        },
         "firephp-for-firebug.next": {
             "depends": [
                 "os-inception/smi.cli",
                 "os-inception/pinf-to-docker",
                 "pinf-for-mozilla-addon-sdk",
-                "os-inception/to.pinf.lib"
+                "os-inception/to.pinf.lib",
+                "firebug.sdk"
             ],
             "location": "./services/extensions/firephp-for-firebug.next"
         }
@@ -115,6 +119,11 @@
             }
         },
         "lib": {
+            "firebug.sdk": {
+                "depends": [
+                    "pio.postdeploy"
+                ]
+            },
             "pinf-for-mozilla-addon-sdk": {
                 "depends": [
                     "smi.cli",
@@ -131,7 +140,8 @@
                 "depends": [
                     "smi.cli",
                     "pinf-to-docker",
-                    "pinf-for-mozilla-addon-sdk"
+                    "pinf-for-mozilla-addon-sdk",
+                    "firebug.sdk"
                 ],
                 "env": {
                     "PORT": 49083

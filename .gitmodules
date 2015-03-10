@@ -34,3 +34,6 @@
 [submodule "services/tools/firefox-profile"]
 	path = services/tools/firefox-profile
 	url = git@github.com:pinf-to/firefox-profile-js.git
+[submodule "services/lib/firebug.sdk"]
+	path = services/lib/firebug.sdk
+	url = git@github.com:firebug/firebug.sdk.git
